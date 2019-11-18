@@ -12,7 +12,7 @@ all: $(OBJ)
   $(CXX) -o $(EXE) $^ $(LDFLAGS)
 
 build/%.o: %.cpp
-  mkdir -p build
+  @mkdir -p build
   $(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
