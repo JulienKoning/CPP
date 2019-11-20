@@ -1,6 +1,6 @@
-SRC=main.cpp
+SRC=main.cpp Pile.cpp
 #SRC=$(wildcard *.cpp)  
-EXE=main
+EXE=tp8
 
 CXXFLAGS+=-Wall -Wextra -MMD -g -O2
 LDFLAGS= 

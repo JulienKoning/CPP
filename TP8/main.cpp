@@ -38,7 +38,7 @@ int main (int, char **) {
   
   return 0;
 }
-*/
+
 
 int main(int, char **) {
   std::stack<int> is;
@@ -53,5 +53,32 @@ int main(int, char **) {
      is.pop();
   }
 
+  return 0;
+}
+*/
+
+int main()
+{
+  typedef std::vector<ZZ>  vzz;
+  // OU en C++ 2011
+  // using vzz = std::vector<ZZ> ;
+
+  vzz zz;
+
+  zz.push_back(ZZ("Julien", "Koning", 20));
+  zz.push_back(ZZ("Armen", "Ari", 10));
+  zz.push_back(ZZ("Camille", "Bri", 5));
+  zz.push_back(ZZ("Julien", "Coupe", 16));
+
+  std::priority_queue<ZZ> tri;
+
+  for(vzz::iterator it = zz.begin(); 
+      it!=zz.end(); ++it)
+  tri.push(*it);
+
+  while(!tri.empty()) {
+    std::cout << tri.top() << " ";
+    tri.pop();
+  }
   return 0;
 }
