@@ -6,6 +6,7 @@
 #include <cstring>
 #include <sstream>
 #include<exception>
+#include<stdexcept>
 
 class Chaine
 {
@@ -32,7 +33,9 @@ public:
 
 class null_pointer : public std::logic_error
 {
-
+    public:
+    null_pointer() : std::logic_error("Null"){}
+    null_pointer(const std::string& msg) : std::logic_error(msg){}
 };
 
 

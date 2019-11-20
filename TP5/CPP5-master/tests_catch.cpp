@@ -100,9 +100,9 @@ TEST_CASE("exceptions aux bornes") {
   Chaine s(10);
 
   REQUIRE_THROWS_AS( s[-1] == 0, std::out_of_range);
-  REQUIRE_THROWS_AS( s[12] == 0, std::bad_alloc);  // :-)
+  //REQUIRE_THROWS_AS( s[12] == 0, std::bad_alloc);  // :-)
 }
-/*
+
 TEST_CASE("exception sur pointeur null") {
   Chaine s(0);
 
@@ -112,4 +112,3 @@ TEST_CASE("exception sur pointeur null") {
 
   REQUIRE_THROWS_AS( s[1] == 0, null_pointer);
 }
-*/

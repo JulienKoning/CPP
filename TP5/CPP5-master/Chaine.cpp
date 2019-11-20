@@ -76,13 +76,13 @@ char &Chaine::operator[](int rg)
 {
     if (rg < 0)
     {
-        throw(std::out_of_range(""));
+        throw(std::out_of_range("Index plus petit que 0"));
     }
     else
     {
         if (rg > capacite)
         {
-            throw(std::bad_alloc());
+            throw(/*std::bad_alloc()*/null_pointer("Index not allocated"));
         }
         else
         {

@@ -2,6 +2,8 @@
 #define PILE_H
 
 #include<iostream>
+#include<exception>
+#include<stdexcept>
 
 class Pile
 {
@@ -19,7 +21,6 @@ public:
     int top() const;
     int size()const;
 };
-
 
 
 
