@@ -1,10 +1,12 @@
 #include <algorithm>
 #include <vector>
+#include<map>
 #include <iostream>
 #include <iterator>
 #include "Pile.hpp"
 
 /*
+//VECTEURS
 int main (int, char **) {
   std::vector<int> v;  
   int input;
@@ -39,7 +41,7 @@ int main (int, char **) {
   return 0;
 }
 
-
+//PILE
 int main(int, char **) {
   std::stack<int> is;
   std::stack<double, std::vector<double> > ds;
@@ -55,8 +57,8 @@ int main(int, char **) {
 
   return 0;
 }
-*/
 
+//  PILE A PRIO
 int main()
 {
   typedef std::vector<ZZ>  vzz;
@@ -81,4 +83,47 @@ int main()
     tri.pop();
   }
   return 0;
+}
+
+*/
+
+const std::string& first(const std::pair<std::string,std::string>& p) { return p.first; }
+int main(int, char**) {
+
+typedef std::map<std::string, std::string> mss;
+// OU en C++ 2011
+// using mss = std::map<string, string> ;  
+mss m;
+
+m.insert(std::pair<std::string,std::string>("loic", "405042"));
+m.insert(std::make_pair("pierre", "405033"));
+m.insert(std::make_pair("SOS C++ 24/7", "407662"));
+m["secours"]  = "42";
+
+mss::iterator it = m.find("loic");
+if (it==m.end()) std::cout << "et moi ?\n";
+
+
+
+
+
+ std::map<std::string, std::string> liste;
+
+liste.insert(std::pair<std::string,std::string>("loic", "405042"));
+liste.insert(std::make_pair("pierre", "405033"));
+liste.insert(std::make_pair("SOS C++ 24/7", "407662"));
+liste["secours"]  = "42";
+
+
+ std::map<std::string, std::string>::const_iterator it2 = liste.begin();
+ while(it2!=liste.end()) {  
+    std::cout << it2->first  << " " 
+         << it2->second <<std::endl;
+    ++it2;
+ }
+
+ std::transform(liste.begin(), liste.end(), 
+  std:: ostream_iterator<std::string>(std::cout, " "), first);
+  
+ return 0;
 }

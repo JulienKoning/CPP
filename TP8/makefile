@@ -1,4 +1,4 @@
-SRC=main.cpp Pile.cpp
+SRC=main_test.cpp test_dico.cpp Dico.cpp
 #SRC=$(wildcard *.cpp)  
 EXE=tp8
 
