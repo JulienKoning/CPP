@@ -142,7 +142,9 @@ int main()
   
   std::list<std::string> tmp = dict.rechercherMot("bon");
 
-  for (std::string& elmt : tmp)
+  std::list<std::string> liste = {"bon", "jour"};
+
+  for (std::string& elmt : liste)
   {
     std::cout<<elmt<<std::endl;
   }

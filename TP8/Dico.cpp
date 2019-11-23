@@ -59,8 +59,7 @@ std::list<std::string> Dictionnaire::rechercherMot(std::string mot)
     for (l_iterator it = dico[mot[0]].debut(); it != dico[mot[0]].fin(); ++it)
     {
         std::string tmp = *it;
-        tmp.erase(tmp.begin() + mot.size() -1, tmp.end());
-        if (!tmp.compare(mot))
+        if (tmp.substr(0, mot.size()).compare(mot) == 0)
         {
             res.push_back(*it);
         }

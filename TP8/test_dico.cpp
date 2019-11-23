@@ -55,6 +55,23 @@ TEST_CASE ( "Dictionnaire") {
   dict.ajouterMot("abajour");
   dict.ajouterMot("aurevoir");
 
-  REQUIRE (dict.rechercherMot("bon") == {"bon", "bonjour", "bonne"});
+  std::list<std::string> liste;
+  liste.push_back("bon");
+  liste.push_back("bonjour");
+  liste.push_back("bonne");
+  
 
+  REQUIRE (dict.rechercherMot("bon") == liste);
+
+}
+
+TEST_CASE ("Dictionnaire Recherche mot inexistant") {
+  Dictionnaire dict;
+  dict.ajouterMot("bon");
+  dict.ajouterMot("bonnne");
+  dict.ajouterMot("sa");
+  dict.ajouterMot("mere");
+
+  std::list<std::string> liste;
+  REQUIRE (dict.rechercherMot("je") == liste);
 }

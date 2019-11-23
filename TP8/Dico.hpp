@@ -1,6 +1,7 @@
 #include<iostream>
 #include<list>
 #include<map>
+#include<string>
 
 typedef std::list<std::string>::const_iterator l_iterator;
 
