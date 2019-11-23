@@ -46,3 +46,15 @@ TEST_CASE ( "ListeMT2" ) {
   liste3.ajouterMot("essai 2 c");
   liste2.inserer(liste3.debut(), liste3.fin());
 }
+
+TEST_CASE ( "Dictionnaire") {
+  Dictionnaire dict;
+  dict.ajouterMot("bonjour");
+  dict.ajouterMot("bonne");
+  dict.ajouterMot("bon");
+  dict.ajouterMot("abajour");
+  dict.ajouterMot("aurevoir");
+
+  REQUIRE (dict.rechercherMot("bon") == {"bon", "bonjour", "bonne"});
+
+}

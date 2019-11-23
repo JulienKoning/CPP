@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iterator>
 #include "Pile.hpp"
+#include "Dico.hpp"
 
 /*
 //VECTEURS
@@ -85,7 +86,7 @@ int main()
   return 0;
 }
 
-*/
+
 
 const std::string& first(const std::pair<std::string,std::string>& p) { return p.first; }
 int main(int, char**) {
@@ -126,4 +127,26 @@ liste["secours"]  = "42";
   std:: ostream_iterator<std::string>(std::cout, " "), first);
   
  return 0;
+}
+
+*/
+
+int main()
+{
+  Dictionnaire dict;
+  dict.ajouterMot("bonjour");
+  dict.ajouterMot("bonne");
+  dict.ajouterMot("bon");
+  dict.ajouterMot("abajour");
+  dict.ajouterMot("aurevoir");
+  
+  std::list<std::string> tmp = dict.rechercherMot("bon");
+
+  for (std::string& elmt : tmp)
+  {
+    std::cout<<elmt<<std::endl;
+  }
+  
+
+  return 0;
 }

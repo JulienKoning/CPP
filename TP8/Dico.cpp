@@ -2,19 +2,19 @@
 
 void ListeMotsTries::ajouterMot(const std::string& mot)
 {
-    dico.push_back(mot);
-    dico.sort();
+    liste_mot.push_back(mot);
+    liste_mot.sort();
 }
 
 int ListeMotsTries::getNbMots()
 {
-    return dico.size();
+    return liste_mot.size();
 }
 
 std::ostream& ListeMotsTries::afficher(std::ostream& f)
 {
     f<<"[";
-    for (l_iterator it = dico.begin(); it != dico.end(); ++it)
+    for (l_iterator it = liste_mot.begin(); it != liste_mot.end(); ++it)
     {
         f<<*it<<", ";
     }
@@ -24,21 +24,49 @@ std::ostream& ListeMotsTries::afficher(std::ostream& f)
 
 l_iterator ListeMotsTries::debut()
 {
-    return dico.begin();
+    return liste_mot.begin();
 }
 
 l_iterator ListeMotsTries::fin()
 {
-    return dico.end();
+    return liste_mot.end();
 }
 
 void ListeMotsTries::inserer(l_iterator deb, l_iterator fin)
 {
-    dico.insert(dico.end(),deb, fin);
-    dico.sort();
+    liste_mot.insert(liste_mot.end(),deb, fin);
+    liste_mot.sort();
 } 
 
 void ListeMotsTries::enleverMot(std::string mot)
 {
-    dico.remove(mot);
+    liste_mot.remove(mot);
+}
+
+void Dictionnaire::ajouterMot(std::string mot)
+{
+    dico[mot[0]].ajouterMot(mot);
+}
+
+void Dictionnaire::enleverMot(std::string mot)
+{
+    dico[mot[0]].enleverMot(mot);
+}
+
+std::list<std::string> Dictionnaire::rechercherMot(std::string mot)
+{
+    std::list<std::string> res;
+    for (l_iterator it = dico[mot[0]].debut(); it != dico[mot[0]].fin(); ++it)
+    {
+        std::string tmp = *it;
+        tmp.erase(tmp.begin() + mot.size() -1, tmp.end());
+        if (!tmp.compare(mot))
+        {
+            res.push_back(*it);
+        }
+        
+    }
+    
+    return res;
+    
 }
